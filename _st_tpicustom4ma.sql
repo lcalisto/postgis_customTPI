@@ -125,7 +125,7 @@ $BODY$
 			mean := (total_sum-inner_sum)/1;
 		END IF;
 		
-		tpi:=((center_cell-mean)+0.5)::int;
+		tpi:=center_cell-mean;
 			
 		return tpi;
 		
