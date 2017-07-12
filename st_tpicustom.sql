@@ -16,10 +16,10 @@ where foo.id=111 and ST_Intersects(foo.geometry,rast)
 
 ---------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------
--- Function: elevation.st_tpicustom(raster, integer, raster, text, integer, integer, boolean)
+-- Function: st_tpicustom(raster, integer, raster, text, integer, integer, boolean)
 
---DROP FUNCTION elevation.st_tpicustom(raster, integer, raster, text, integer, integer, boolean);
-CREATE OR REPLACE FUNCTION elevation.st_tpicustom(
+--DROP FUNCTION st_tpicustom(raster, integer, raster, text, integer, integer, boolean);
+CREATE OR REPLACE FUNCTION st_tpicustom(
     rast raster,
     nband integer,
     customextent raster,
@@ -74,7 +74,7 @@ $BODY$
 
 		RETURN public.ST_MapAlgebra(
 			ARRAY[ROW(_rast, _nband)]::rastbandarg[],
-			' elevation._st_tpicustom4ma(double precision[][][], integer[][], text[])'::regprocedure,
+			' _st_tpicustom4ma(double precision[][][], integer[][], text[])'::regprocedure,
 			_pixtype,
 			_extenttype, _customextent,
 			_orad, _orad,
@@ -83,14 +83,14 @@ $BODY$
 	$BODY$
   LANGUAGE plpgsql IMMUTABLE
   COST 100;
-  ALTER FUNCTION elevation.st_tpicustom(raster, integer, raster, text, integer, integer, boolean)
+  ALTER FUNCTION st_tpicustom(raster, integer, raster, text, integer, integer, boolean)
   OWNER TO postgres;
 ---------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------
-  -- Function: elevation.st_tpicustom(raster, integer, text, integer, integer, boolean)
+  -- Function: st_tpicustom(raster, integer, text, integer, integer, boolean)
 
--- DROP FUNCTION elevation.st_tpicustom(raster, integer, text, integer, integer, boolean);
-CREATE OR REPLACE FUNCTION elevation.st_tpicustom(
+-- DROP FUNCTION st_tpicustom(raster, integer, text, integer, integer, boolean);
+CREATE OR REPLACE FUNCTION st_tpicustom(
     rast raster,
     nband integer DEFAULT 1,
     pixeltype text DEFAULT '32BF'::text,
@@ -98,8 +98,8 @@ CREATE OR REPLACE FUNCTION elevation.st_tpicustom(
     orad integer DEFAULT 1,
     interpolate_nodata boolean DEFAULT false)
   RETURNS raster AS
-' SELECT elevation.st_tpicustom($1, $2, NULL::raster, $3, $4,$5,$6) '
+' SELECT st_tpicustom($1, $2, NULL::raster, $3, $4,$5,$6) '
   LANGUAGE sql IMMUTABLE
   COST 100;
-ALTER FUNCTION elevation.st_tpicustom(raster, integer, text, integer, integer, boolean)
+ALTER FUNCTION st_tpicustom(raster, integer, text, integer, integer, boolean)
   OWNER TO postgres;

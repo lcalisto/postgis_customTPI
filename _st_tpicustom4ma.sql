@@ -16,8 +16,8 @@ where foo.id=111 and ST_Intersects(foo.geometry,rast)
 
 ---------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------
---DROP FUNCTION elevation._st_tpicustom4ma(double precision[], integer[], text[]);
-CREATE OR REPLACE FUNCTION elevation._st_tpicustom4ma(
+--DROP FUNCTION _st_tpicustom4ma(double precision[], integer[], text[]);
+CREATE OR REPLACE FUNCTION _st_tpicustom4ma(
     IN value double precision[],
     IN pos integer[],
     VARIADIC userargs text[] DEFAULT NULL::text[])
@@ -133,5 +133,5 @@ $BODY$
 	$BODY$
 LANGUAGE plpgsql IMMUTABLE
   COST 100;
-ALTER FUNCTION elevation._st_tpicustom4ma(double precision[], integer[], text[])
+ALTER FUNCTION _st_tpicustom4ma(double precision[], integer[], text[])
   OWNER TO postgres;

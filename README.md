@@ -10,7 +10,7 @@ Execute the folowing queries in your database:
 
 The main function is:
 
-st_tpicustom(raster _rast_, integer _nband_, raster _customextent_,text _pixeltype="32BF"_,integer _inner radius in pixels_,integer _outter radius in pixels_,boolean _interpolate_nodata=FALSE_)
+st_tpicustom(raster __rast__, integer __nband__, raster __customextent__, text __pixeltype="32BF"__, integer __inner radius in pixels__, integer __outter radius in pixels__, boolean __interpolate_nodata=FALSE__)
 
 Example with a inner annnulus of 5 pixels and outter annulus of 10 pixels:
 
