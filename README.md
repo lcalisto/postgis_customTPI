@@ -1,6 +1,6 @@
-# postgis_customTPI
+# Postgis custom TPI
 
-This is a generic implementation of TPI based on the current TPI already existing in POSTGIS with the extra ability to allow focal mean radius different from one.
+This is a generic implementation of TPI based on the current POSTGIS TPI implementation, with the extra ability of allowing a custom focal mean radius (different from one).
 
 ## Usage:
 
