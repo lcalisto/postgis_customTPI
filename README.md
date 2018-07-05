@@ -1,6 +1,6 @@
 # Postgis custom TPI
 
-This is a generic implementation of TPI based on the current POSTGIS TPI implementation, with the extra ability of allowing a custom focal inner and outter mean radius (different from one).
+This is a generic implementation of TPI based on the current PostGIS TPI implementation, with the extra ability of allowing a custom focal inner and outter mean radius (different from one).
 This implementation of TPI was based on the current implementation of TPI by PostGIS (https://postgis.net/docs/RT_ST_TPI.html) and the folowing document [http://www.jennessent.com/downloads/tpi-poster-tnc_18x22.pdf](http://www.jennessent.com/downloads/tpi-poster-tnc_18x22.pdf)
 
 ## Usage:
